@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { STYLES } from "./styles/tanit-styles";
 import Navbar from "./components/Navbar";
 import Cursor from "./components/Cursor";
+//import ScrollVines from "./components/Scrollvines";
 
 export const metadata: Metadata = {
   title: "Tanit Terron",
