@@ -113,10 +113,29 @@ export default function StickerBoard() {
   }, []);
 
   useEffect(() => {
+    const dpr = window.devicePixelRatio || 1;
+
     for (const ref of [stickerCv, drawCv]) {
       const c = ref.current;
-      if (c) { c.width = boardW; c.height = bh; }
+      if (!c) continue;
+
+      // dimensioni reali in pixel fisici
+      c.width  = Math.round(boardW * dpr);
+      c.height = Math.round(bh * dpr);
+
+      // dimensioni CSS (pixel logici)
+      c.style.width  = boardW + 'px';
+      c.style.height = bh + 'px';
+
+      const ctx = c.getContext('2d');
+
+      // reset trasformazioni precedenti
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+      // scala per retina
+      ctx.scale(dpr, dpr);
     }
+
     renderStickers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boardW, bh]);
