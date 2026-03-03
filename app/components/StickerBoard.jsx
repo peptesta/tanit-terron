@@ -50,7 +50,10 @@ function drawPostitMobile(ctx, s, isTop, pw, ph) {
   ctx.fillStyle = 'rgba(255,255,255,0.62)';
   ctx.fillRect(x + pw/2 - 12, y - 7, 24, 10);
 
-  const fs = 11;
+  // Font leggermente più grande su mobile piccoli schermi
+  const baseFont = 11;
+  const fs = window.innerWidth < 400 ? baseFont + 2 : baseFont + 1;
+
   ctx.fillStyle = '#2a0a4e';
   ctx.font = `${fs}px Caveat, cursive`;
   ctx.textBaseline = 'top';
