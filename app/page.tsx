@@ -1,65 +1,50 @@
-import Image from "next/image";
+'use client';
+import { Leaf, Handshake, RefreshCw, Sparkles } from 'lucide-react';
+import BgDoodles from '@/app/components/BgDoodles';
+import StickerBoard from '@/app/components/StickerBoard';
+import { Btn, CtaSection, Footer, FeatureCard } from '@/app/components/ui';
 
-export default function Home() {
+export default function HomePage() {
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="tanit-page">
+      <section style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'120px 48px 80px', position:'relative' }}>
+        <BgDoodles variant="home"/>
+        <div style={{ position:'relative', zIndex:2, textAlign:'center', maxWidth:820 }}>
+          <span className="fade-stagger-1" style={{ fontFamily:"'Caveat',cursive", fontSize:'1.35rem', color:'var(--p3)', letterSpacing:'0.08em', display:'inline-block', marginBottom:16 }}>✦ Psicologa &amp; Accompagnatrice ✦</span>
+          <h1 className="fade-stagger-2" style={{ fontFamily:"'DM Serif Display',serif", fontSize:'clamp(3.6rem,9vw,7.5rem)', lineHeight:1.05, color:'var(--p1)', margin:'0 0 8px' }}>
+            <em style={{ fontStyle:'italic', color:'var(--p3)' }}>Tanit</em><br/>Terron
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          <p className="fade-stagger-3" style={{ fontFamily:"'Caveat',cursive", fontSize:'1.55rem', color:'var(--p2)', margin:'0 0 28px' }}>Perché ogni percorso nasce da un atto di coraggio.</p>
+          <p className="fade-stagger-4" style={{ fontSize:'1.12rem', fontWeight:300, lineHeight:1.85, color:'#3d1a6e', maxWidth:560, margin:'0 auto 48px' }}>Non sono qui per darti risposte. Sono qui per camminare con te mentre le trovi. Un accompagnamento umano, professionale e profondamente tuo.</p>
+          <div className="fade-stagger-5" style={{ display:'flex', gap:20, justifyContent:'center', flexWrap:'wrap' }}>
+            <Btn onClick={() => console.log('ciao')}>Scopri il Percorso</Btn>
+            <Btn onClick={() => console.log('chi sono')} variant="outline">Chi sono</Btn>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="fade-stagger-6" style={{ position:'absolute', bottom:36, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8 }}>
+          <span style={{ fontFamily:"'Caveat',cursive", fontSize:'0.9rem', color:'var(--p4)', letterSpacing:'0.1em' }}>scorri</span>
+          <div className="scroll-arrow" style={{ width:22, height:22, borderRight:'2px solid var(--p4)', borderBottom:'2px solid var(--p4)', transform:'rotate(45deg)' }}/>
         </div>
-      </main>
+      </section>
+
+      <section style={{ padding:'60px 48px 80px', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:32, maxWidth:1120, margin:'0 auto' }}>
+        <FeatureCard icon={Leaf}      title="Accompagnamento autentico" delay={0}   text="Non una terapia standardizzata. Un percorso costruito su di te, passo dopo passo, nel tuo tempo."/>
+        <FeatureCard icon={Handshake} title="Il Patto di Impegno"        delay={120} text="Un investimento consapevole che diventa strumento terapeutico. La tua volontà, resa concreta fin dal primo momento."/>
+        <FeatureCard icon={RefreshCw} title="Premio alla Costanza"       delay={240} text="Per ogni seduta completata, 5€ tornano a te a metà e a fine percorso. Il tuo impegno genera valore reale."/>
+        <FeatureCard icon={Sparkles}  title="Presenza totale"            delay={360} text="Ogni seduta è uno spazio sicuro. Nessun giudizio, nessuna fretta. Solo ascolto vero e profondo."/>
+      </section>
+
+      <section style={{ padding:'20px 48px 80px', maxWidth:1120, margin:'0 auto', position:'relative', zIndex:2 }}>
+        <div style={{ textAlign:'center', marginBottom:40 }}>
+          <h2 className="section-title">Voci dal <span className="drawn">viaggio</span></h2>
+          <p className="section-sub">Disegna, trascina, aggiungi — fai tuo questo spazio</p>
+        </div>
+        <StickerBoard/>
+      </section>
+
+      <CtaSection title={<>Pronta a <span className="drawn">cominciare</span>?</>} body="Il primo passo è il più importante. Scrivimi: parliamo insieme di come posso accompagnarti." btnLabel="Scrivi a Tanit"/>
+      <Footer/>
     </div>
   );
 }
