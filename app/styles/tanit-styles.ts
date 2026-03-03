@@ -118,7 +118,35 @@ export const STYLES = `
   @keyframes tWiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
   @keyframes tScroll{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(8px)}}
   .scroll-arrow{animation:tScroll 1.5s ease infinite}
-  @media(max-width:768px){ .tanit-nav{padding:14px 20px} .patto-card{padding:32px 24px} .tanit-btn{padding:12px 28px;font-size:1.1rem} }
+  /* ── Griglie About ── */
+  .about-hero-grid {
+    display:grid; grid-template-columns:1fr 380px;
+    gap:clamp(24px,5vw,72px); align-items:center;
+    margin-bottom:clamp(40px,6vw,80px);
+  }
+  .about-body-grid {
+    display:grid; grid-template-columns:340px 1fr;
+    gap:clamp(24px,5vw,72px); align-items:start;
+  }
+
+  @media(max-width:768px){
+    .tanit-nav { padding:14px 20px; }
+    .tanit-nav-links { gap:20px; }
+    .tanit-nav-links button { font-size:1rem; }
+    .patto-card { padding:28px 20px; }
+    .tanit-btn  { padding:12px 28px; font-size:1.1rem; }
+
+    /* About: tutto in colonna centrata */
+    .about-hero-grid {
+      grid-template-columns:1fr;
+      text-align:center;
+    }
+    .about-hero-grid > div:last-child { max-width:280px; margin:0 auto; }
+    .about-body-grid { grid-template-columns:1fr; }
+    .about-photo-secondary { display:none; }
+    section { padding-left:20px !important; padding-right:20px !important; }
+    .section-title { font-size:1.8rem; }
+  }
 
   .tanit-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -150,5 +178,4 @@ export const STYLES = `
 .tanit-nav.scrolled .tanit-nav-links button.active {
   border-bottom-color: #fff;
 }
-
-  `;
+`;
